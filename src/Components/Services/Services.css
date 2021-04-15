@@ -1,0 +1,13 @@
+.services{
+    width:100%;
+    background-image: url('https://cdn.shopify.com/s/files/1/1284/6493/files/home_best_selling_img.png?v=1531124032');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: #f4f4f4;
+    padding: 100px 0 75px;
+
+}
+.service-header{
+    color: #9fc58d;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}

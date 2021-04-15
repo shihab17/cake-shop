@@ -1,0 +1,26 @@
+.service {
+    color: #a8b2b7;
+}
+
+.service:hover {
+    
+    color: #ff7380;
+}
+.price{
+   color: #ff7380;
+
+}
+
+p{
+    color:#e49aa2
+}
+p:hover{
+    color: #ff7380;
+}
+.button{
+    background-color: #ff7380;
+    color: white;
+}
+.button:hover{
+    background-color:rgb(142, 195, 228);
+}
