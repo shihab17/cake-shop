@@ -4,18 +4,21 @@ import './Services.css'
 const Services = () => {
     const serViceFakeData = [
         {
+            id:1,
             image: 'https://cdn.shopify.com/s/files/1/1284/6493/products/7_grande.jpg?v=1471493600',
             name: `Valentine's Day Cup Cake`,
             price: 200,
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, accusantium.'
         },
         {
+            id:2,
             image: 'https://cdn.shopify.com/s/files/1/1284/6493/products/11_grande.jpg?v=1471432940',
             name: `Jewelled Fruit Cake`,
             price: 850,
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, accusantium.'
         },
         {
+            id:3,
             image: 'https://cdn.shopify.com/s/files/1/1284/6493/products/12_grande.jpg?v=1471432900',
             name: `Heartfelt Gift Basket`,
             price: 550,
@@ -31,7 +34,7 @@ const Services = () => {
                 </div>
                 <div className="row">
                     {
-                        serViceFakeData.map(service => <Service image={service.image} name={service.name} price={service.price} description={service.description}></Service>)
+                        serViceFakeData.map(service => <Service image={service.image} name={service.name} price={service.price} description={service.description} key={service.id}></Service>)
                     }
                 </div>
                 <div className="d-flex justify-content-center">

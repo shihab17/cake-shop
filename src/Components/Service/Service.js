@@ -8,7 +8,7 @@ const Service = (props) => {
                 <img src={image} className="card-img-top" alt="..." />
                 <div className="card-body">
                     <h4 className="cake-name">{name}</h4>
-                    <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                    <p className="card-text">{description}</p>
                     <div className="row">
                         <div className="col-6">
                             <h2 className="price">$ {price}</h2>
