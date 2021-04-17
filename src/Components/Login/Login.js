@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Navbar from '../Shared/Navbar/Navbar';
 import firebase from "firebase/app";
 import "firebase/analytics";
 import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from './firebase.config';
+import { LoggedInContext } from '../../App';
 const Login = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(LoggedInContext)
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig)
     }
@@ -17,7 +19,9 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(googleProvider)
             .then((result) => {
-                console.log(result.user)
+                const {displayName, email, photoURL} = result.user;
+                const signedInUser = {name: displayName, email, photoURL}
+                setLoggedInUser(signedInUser)
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
