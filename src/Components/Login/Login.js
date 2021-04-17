@@ -6,8 +6,12 @@ import "firebase/auth";
 import "firebase/firestore";
 import firebaseConfig from './firebase.config';
 import { LoggedInContext } from '../../App';
+import { useHistory, useLocation } from 'react-router';
 const Login = () => {
-    const [loggedInUser, setLoggedInUser] = useContext(LoggedInContext)
+    const [loggedInUser, setLoggedInUser] = useContext(LoggedInContext);
+    const history = useHistory();
+    const location = useLocation();
+    const { from } = location.state || { from: { pathname: "/" } };
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig)
     }
@@ -22,6 +26,7 @@ const Login = () => {
                 const {displayName, email, photoURL} = result.user;
                 const signedInUser = {name: displayName, email, photoURL}
                 setLoggedInUser(signedInUser)
+                history.replace(from);
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;

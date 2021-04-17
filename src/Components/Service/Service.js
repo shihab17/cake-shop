@@ -1,7 +1,13 @@
 import React from 'react';
+import { useHistory } from 'react-router';
 import './Service.css'
 const Service = (props) => {
-    const { image, name, price, description } = props;
+    const {id, image, name, price, description } = props;
+    const handleService = id => {
+        console.log('clicked',id)
+        // const history = useHistory();
+        // history.push(`/checkout/${id}`)
+    }
     return (
         <div className="col-md-4 d-flex justify-content-center p-5 ">
             <div className="card text-center bg-light service shadow ">
@@ -14,7 +20,7 @@ const Service = (props) => {
                             <h2 className="price">$ {price}</h2>
                         </div>
                         <div className="col-6">
-                            <button className="btn btn-lg button">Buy Now</button>
+                            <button className="btn btn-lg button" onClick={() => handleService(id)}>Buy Now</button>
                         </div>
                     </div>
                 </div>

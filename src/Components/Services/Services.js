@@ -24,7 +24,7 @@ const Services = () => {
             price: 550,
             description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Nam, accusantium.'
         }
-    ]
+    ];
     return (
         <section className="services">
             <div style={{ width:'90%' }} className='m-auto'>
@@ -34,11 +34,11 @@ const Services = () => {
                 </div>
                 <div className="row">
                     {
-                        serViceFakeData.map(service => <Service image={service.image} name={service.name} price={service.price} description={service.description} key={service.id}></Service>)
+                        serViceFakeData.map(service => <Service image={service.image} name={service.name} price={service.price} description={service.description} id={service.id} key={service.id}></Service>)
                     }
                 </div>
                 <div className="d-flex justify-content-center">
-                    <button style={{ background: '#ff7380', color: 'white' }} className="btn btn-lg ">More Services</button>
+                    <button style={{ background: '#ff7380', color: 'white' }} className="btn btn-lg " >More Services</button>
                 </div>
             </div>
         </section>
