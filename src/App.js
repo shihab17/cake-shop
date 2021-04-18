@@ -18,17 +18,9 @@ import Review from './Components/UserDashBoard/Review/Review';
 export const LoggedInContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [isAdmin, setIsAdmin] = useState(false);
-  useEffect(() => {
-    fetch('http://localhost:5000/isAdmin', {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ email: loggedInUser.email })
-    })
-      .then(res => res.json())
-      .then(data => setIsAdmin(data));
-  }, [])
-  console.log(isAdmin)
+  // const [isAdmin, setIsAdmin] = useState(false);
+  // const email = 'shihabahmed620@gmail.com';
+  
   return (
     <LoggedInContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
@@ -43,7 +35,7 @@ function App() {
           <PrivateRoute path="/checkout">
             <Checkout></Checkout>
           </PrivateRoute>
-          <PrivateRoute path='/dashBoard'>
+          <PrivateRoute path='/admin'>
             <DashBoard></DashBoard>
           </PrivateRoute>
           <PrivateRoute path='/addService'>

@@ -27,7 +27,7 @@ const Navbar = () => {
                             <Link className="nav-link text-white" to="/admin">Admin</Link>
                         </li>
                         {
-                            loggedInUser.email ?
+                            loggedInUser.email || sessionStorage.getItem('token') ?
                             <li className="nav-item ms-5">
                                 <Link className="nav-link text-white" to="/checkout">Checkout</Link>
                             </li> : ''

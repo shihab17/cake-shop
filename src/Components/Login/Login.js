@@ -9,9 +9,18 @@ import { LoggedInContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(LoggedInContext);
+
     const history = useHistory();
     const location = useLocation();
-    const { from } = location.state || { from: { pathname: "/" } };
+    // const { from } = location.state || loggedInUser.isAdmin ?  { from: { pathname: "/admin" } } : { from: { pathname: "/user" } }
+    const { from } = location.state || { from: { pathname: "/" } }
+    // if(loggedInUser.isAdmin){
+    //     const { from } = location.state || { from: { pathname: "/admin" } }
+    // }
+    // else{
+    //     const { from } = location.state || { from: { pathname: "/user" } }
+    // }
+
     if (!firebase.apps.length) {
         firebase.initializeApp(firebaseConfig)
     }
@@ -23,14 +32,29 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(googleProvider)
             .then((result) => {
-                const {displayName, email, photoURL} = result.user;
-                const signedInUser = {name: displayName, email, photoURL}
-                setLoggedInUser(signedInUser)
+                console.log(result.user.uid)
+                const { displayName, email, photoURL,uid } = result.user;
+                fetch('http://localhost:5000/isAdmin', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({ email: email })
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        const signedInUser = { name: displayName, email, photoURL, isAdmin: data }
+                        setLoggedInUser(signedInUser)
+                        sessionStorage.setItem('token',uid)
+                        // const {from} = data === true ? location.state || { from: { pathname: "/admin" } } : location.state || { from: { pathname: "/user" } }
+
+                    });
+
                 history.replace(from);
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;
-                console.log(errorCode,errorMessage)
+                console.log(errorCode, errorMessage)
             });
     }
 
