@@ -17,13 +17,13 @@ const UserSidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/addBook" className="text-white text-decoration-none">
+                    <Link to="/addBooking" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faShoppingCart} /> <span>Booking</span>
                     </Link>
                 </li>
                 <li>
-                    <Link to="/makeAdmin" className="text-white text-decoration-none">
-                        <FontAwesomeIcon icon={faShoppingBasket} /> <span>Order List</span>
+                    <Link to="/booking" className="text-white text-decoration-none">
+                        <FontAwesomeIcon icon={faShoppingBasket} /> <span>Booking List</span>
                     </Link>
                 </li>
                 <li>

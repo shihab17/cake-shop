@@ -22,7 +22,7 @@ const Review = () => {
             reviewData: reviewData,
             rating: rating
         }
-        fetch('http://localhost:5000/addReview', {
+        fetch('https://nameless-atoll-05922.herokuapp.com/addReview', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

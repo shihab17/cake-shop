@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import './Sidebar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCog, faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faUsers, faPlus } from '@fortawesome/free-solid-svg-icons';
+import { faCog, faSignOutAlt, faCalendar, faHome, faGripHorizontal, faUserPlus, faUsers, faPlus, faShoppingBag } from '@fortawesome/free-solid-svg-icons';
 import { faFileAlt } from '@fortawesome/free-regular-svg-icons'
 const Sidebar = () => {
     
@@ -22,6 +22,11 @@ const Sidebar = () => {
                 <li>
                     <Link to="/addService" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faPlus} /> <span>Add Service</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link to="/bookingList" className="text-white text-decoration-none">
+                        <FontAwesomeIcon icon={faShoppingBag} /> <span>Booking List</span>
                     </Link>
                 </li>
                 <li>

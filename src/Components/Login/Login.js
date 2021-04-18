@@ -34,7 +34,7 @@ const Login = () => {
             .then((result) => {
                 console.log(result.user.uid)
                 const { displayName, email, photoURL,uid } = result.user;
-                fetch('http://localhost:5000/isAdmin', {
+                fetch('https://nameless-atoll-05922.herokuapp.com/isAdmin', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

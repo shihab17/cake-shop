@@ -10,7 +10,7 @@ const Checkout = () => {
     const sessionLoggedInUser = JSON.parse(sessionStorage.getItem('loggedInUser'));
     const history = useHistory()
     useEffect(() => {
-        fetch(`http://localhost:5000/checkout/${loggedInUser.email || sessionLoggedInUser.email}`)
+        fetch(`https://nameless-atoll-05922.herokuapp.com/checkout/${loggedInUser.email || sessionLoggedInUser.email}`)
             .then(res => res.json())
             .then(data => setCart(data))
     }, []);
@@ -30,7 +30,7 @@ const Checkout = () => {
     }
     const handleQuantity = (id, checkoutUpdateData) => {
 
-        fetch(`http://localhost:5000/updateCheckout/${id}`, {
+        fetch(`https://nameless-atoll-05922.herokuapp.com/updateCheckout/${id}`, {
             method: 'PATCH',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(checkoutUpdateData)
@@ -47,22 +47,23 @@ const Checkout = () => {
         const orderData = {
             data: cart,
             total: subTotal,
+            status:'',
             email: loggedInUser.email || sessionLoggedInUser.email
         }
-        fetch(`http://localhost:5000/addOrder`, {
+        fetch(`https://nameless-atoll-05922.herokuapp.com/addOrder`, {
             method: 'POST',
             headers: { 'Content-type': 'application/json' },
             body: JSON.stringify(orderData)
         })
             .then(res => {
                 console.log("response", res)
-                fetch(`http://localhost:5000/deleteCheckout/${loggedInUser.email || sessionLoggedInUser.email}`, {
+                fetch(`https://nameless-atoll-05922.herokuapp.com/deleteCheckout/${loggedInUser.email || sessionLoggedInUser.email}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())
                     .then(result => {
                         console.log('deleted successfully')
-                        history.push('/addBook')
+                        history.push('/addBooking')
                     })
             })
     }

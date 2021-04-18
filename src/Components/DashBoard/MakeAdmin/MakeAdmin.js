@@ -11,7 +11,7 @@ const MakeAdmin = () => {
     }
     const handleSubmit = e => {
         document.getElementById('email').value = '';
-        fetch('http://localhost:5000/makeAdmin', {
+        fetch('https://nameless-atoll-05922.herokuapp.com/makeAdmin', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -15,11 +15,12 @@ import MakeAdmin from './Components/DashBoard/MakeAdmin/MakeAdmin';
 import UserDashBoard from './Components/UserDashBoard/UserDashBoard';
 import Review from './Components/UserDashBoard/Review/Review';
 import BookOrder from './Components/UserDashBoard/BookOrder/BookOrder';
+import BookingList from './Components/UserDashBoard/BookingList/BookingList';
 
 export const LoggedInContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  
+
   return (
     <LoggedInContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
@@ -31,7 +32,7 @@ function App() {
           <Route path="/about">
 
           </Route>
-           <PrivateRoute path="/checkout">
+          <PrivateRoute path="/checkout">
             <Checkout></Checkout>
           </PrivateRoute>
           <PrivateRoute path='/admin'>
@@ -40,14 +41,20 @@ function App() {
           <PrivateRoute path='/addService'>
             <AddService></AddService>
           </PrivateRoute>
+          <PrivateRoute path='/bookingList'>
+            <BookingList></BookingList>
+          </PrivateRoute>
           <PrivateRoute path='/makeAdmin'>
             <MakeAdmin></MakeAdmin>
           </PrivateRoute>
           <PrivateRoute path='/user'>
             <UserDashBoard></UserDashBoard>
           </PrivateRoute>
-          <PrivateRoute path='/addBook'>
+          <PrivateRoute path='/addBooking'>
             <BookOrder></BookOrder>
+          </PrivateRoute>
+          <PrivateRoute path='/booking'>
+            <BookingList></BookingList>
           </PrivateRoute>
           <PrivateRoute path='/review'>
             <Review></Review>

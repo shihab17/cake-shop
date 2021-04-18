@@ -8,7 +8,7 @@ const Cart = (props) => {
     const { _id, name, price, quantity } = props.cart;
     const total = quantity*price;
     const handleDelete = id => {
-        fetch(`http://localhost:5000/deleteCheckout/${id}`, {
+        fetch(`https://nameless-atoll-05922.herokuapp.com/deleteCheckout/${id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())

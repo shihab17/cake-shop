@@ -41,7 +41,7 @@ const AddService = () => {
             data: info,
             imageUrl : image
         }
-        fetch('http://localhost:5000/addService', {
+        fetch('https://nameless-atoll-05922.herokuapp.com/addService', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

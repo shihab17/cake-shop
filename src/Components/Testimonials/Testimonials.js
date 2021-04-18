@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Testimonial from '../Home/Testimonial/Testimonial';
 import './Testimonials.css'
 const Testimonials = () => {
+    const [testimonials, setTestimonials] = useState([]);
+    useEffect(() => {
+        fetch('https://nameless-atoll-05922.herokuapp.com/testimonials')
+        .then(res => res.json())
+        .then(data => setTestimonials(data))
+    },[])
+    console.log("testimonial",testimonials)
     const testimonialFakedata = [
         {
             id:1,
@@ -24,9 +31,9 @@ const Testimonials = () => {
     ]
     return (
         <section>
-            <div className="row">
+            <div className="row p-5">
             {
-                testimonialFakedata.map(testimonial => <Testimonial name={testimonial.name} comment={testimonial.comment} rating={testimonial.rating} key={testimonial.id} ></Testimonial> )
+                testimonials.map(testimonial => <Testimonial  key={testimonial._id} testimonial={testimonial} ></Testimonial> )
             }
             </div>
 
