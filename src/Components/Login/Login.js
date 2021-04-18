@@ -9,7 +9,7 @@ import { LoggedInContext } from '../../App';
 import { useHistory, useLocation } from 'react-router';
 const Login = () => {
     const [loggedInUser, setLoggedInUser] = useContext(LoggedInContext);
-
+    
     const history = useHistory();
     const location = useLocation();
     // const { from } = location.state || loggedInUser.isAdmin ?  { from: { pathname: "/admin" } } : { from: { pathname: "/user" } }
@@ -46,11 +46,19 @@ const Login = () => {
                         const signedInUser = { name: displayName, email, photoURL, isAdmin: data }
                         setLoggedInUser(signedInUser)
                         sessionStorage.setItem('token',uid)
+                        sessionStorage.setItem('loggedInUser',JSON.stringify(signedInUser))
                         // const {from} = data === true ? location.state || { from: { pathname: "/admin" } } : location.state || { from: { pathname: "/user" } }
 
                     });
 
-                history.replace(from);
+                // history.replace(from);
+                if(loggedInUser.isAdmin){
+                    history.replace(location.state || '/admin')
+                }
+                else{
+                    history.replace(location.state || '/user') 
+                }
+                // history.replace(location.state || loggedInUser.isAdmin===true ? '/admin' : '/user');
             }).catch((error) => {
                 var errorCode = error.code;
                 var errorMessage = error.message;

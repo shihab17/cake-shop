@@ -17,8 +17,8 @@ const UserSidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/addService" className="text-white text-decoration-none">
-                        <FontAwesomeIcon icon={faShoppingCart} /> <span>Order</span>
+                    <Link to="/addBook" className="text-white text-decoration-none">
+                        <FontAwesomeIcon icon={faShoppingCart} /> <span>Booking</span>
                     </Link>
                 </li>
                 <li>

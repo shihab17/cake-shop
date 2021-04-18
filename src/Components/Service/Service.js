@@ -1,12 +1,37 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useHistory } from 'react-router';
+import { LoggedInContext } from '../../App';
 import './Service.css'
 const Service = (props) => {
-    const {id, image, name, price, description } = props;
+    const { id, image, name, price, description } = props;
+    const [loggedInUser, setLoggedInUser] = useContext(LoggedInContext)
+    const sessionLoggedInUser= JSON.parse(sessionStorage.getItem('loggedInUser'))
+    const history = useHistory();
     const handleService = id => {
-        console.log('clicked',id)
-        // const history = useHistory();
-        // history.push(`/checkout/${id}`)
+        console.log('clicked', id)
+        
+        const checkoutData = {
+            serviceId: id,
+            image: image,
+            name: name,
+            price: price,
+            description: description,
+            quantity: 1,
+            date: new Date(),
+            email: loggedInUser.email || sessionLoggedInUser.email
+        }
+        fetch('http://localhost:5000/addCheckout', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(checkoutData)
+        })
+            .then(res => {
+                console.log(res)
+            })
+
+        history.push('/checkout')
     }
     return (
         <div className="col-md-4 d-flex justify-content-center p-5 ">

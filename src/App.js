@@ -14,12 +14,11 @@ import AddService from './Components/DashBoard/AddService/AddService';
 import MakeAdmin from './Components/DashBoard/MakeAdmin/MakeAdmin';
 import UserDashBoard from './Components/UserDashBoard/UserDashBoard';
 import Review from './Components/UserDashBoard/Review/Review';
+import BookOrder from './Components/UserDashBoard/BookOrder/BookOrder';
 
 export const LoggedInContext = createContext();
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  // const [isAdmin, setIsAdmin] = useState(false);
-  // const email = 'shihabahmed620@gmail.com';
   
   return (
     <LoggedInContext.Provider value={[loggedInUser, setLoggedInUser]}>
@@ -32,7 +31,7 @@ function App() {
           <Route path="/about">
 
           </Route>
-          <PrivateRoute path="/checkout">
+           <PrivateRoute path="/checkout">
             <Checkout></Checkout>
           </PrivateRoute>
           <PrivateRoute path='/admin'>
@@ -47,9 +46,14 @@ function App() {
           <PrivateRoute path='/user'>
             <UserDashBoard></UserDashBoard>
           </PrivateRoute>
+          <PrivateRoute path='/addBook'>
+            <BookOrder></BookOrder>
+          </PrivateRoute>
           <PrivateRoute path='/review'>
             <Review></Review>
           </PrivateRoute>
+
+
           <Route path='/login'>
             <Login></Login>
           </Route>
