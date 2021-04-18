@@ -9,28 +9,9 @@ const Testimonials = () => {
         .then(data => setTestimonials(data))
     },[])
     console.log("testimonial",testimonials)
-    const testimonialFakedata = [
-        {
-            id:1,
-            name: 'Nash Part',
-            comment: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil officiis reprehenderit, hic ut eligendi nobis necessitatibus aut animi. Cum aliquam numquam eos ipsa error repellat, quidem facere sapiente recusandae neque?',
-            rating: '5 star'
-        },
-        {
-            id:2,
-            name: 'Nash Part',
-            comment: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil officiis reprehenderit, hic ut eligendi nobis necessitatibus aut animi. Cum aliquam numquam eos ipsa error repellat, quidem facere sapiente recusandae neque?',
-            rating: '5 star'
-        },
-        {
-            id:3,
-            name: 'Nash Part',
-            comment: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nihil officiis reprehenderit, hic ut eligendi nobis necessitatibus aut animi. Cum aliquam numquam eos ipsa error repellat, quidem facere sapiente recusandae neque?',
-            rating: '5 star'
-        }
-    ]
     return (
-        <section>
+        <section className='m-auto'>
+            <h2 className="text-center m-2 service-header p-5">Testimonial</h2>
             <div className="row p-5">
             {
                 testimonials.map(testimonial => <Testimonial  key={testimonial._id} testimonial={testimonial} ></Testimonial> )

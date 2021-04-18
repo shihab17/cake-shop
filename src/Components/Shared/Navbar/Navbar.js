@@ -1,3 +1,5 @@
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useContext } from 'react';
 import {
     Link
@@ -23,18 +25,27 @@ const Navbar = () => {
                         <li className="nav-item ms-5">
                             <Link className="nav-link text-white" to="/contact">Contact</Link>
                         </li>
-                        <li className="nav-item ms-5">
-                            <Link className="nav-link text-white" to="/admin">Admin</Link>
-                        </li>
+                        {
+                            loggedInUser.isAdmin ? <li className="nav-item ms-5">
+                                <Link className="nav-link text-white" to="/admin">Dashboard</Link>
+                            </li> : <li className="nav-item ms-5">
+                                <Link className="nav-link text-white" to="/user">Dashboard</Link>
+                            </li>
+                        }
+
                         {
                             loggedInUser.email || sessionStorage.getItem('token') ?
-                            <li className="nav-item ms-5">
-                                <Link className="nav-link text-white" to="/checkout">Checkout</Link>
-                            </li> : ''
+                                <li className="nav-item ms-5">
+                                    <Link className="nav-link text-white" to="/checkout"> <FontAwesomeIcon icon={faShoppingCart}></FontAwesomeIcon> Checkout</Link>
+                                </li> : ''
                         }
-                        <li className="nav-item ms-5">
-                            <Link className="nav-link text-white " to="/login">Login</Link>
-                        </li>
+                        {
+                            loggedInUser.email || sessionStorage.getItem('token') ? '' :
+                                <li className="nav-item ms-5">
+                                    <Link className="nav-link text-white " to="/login">Login</Link>
+                                </li>
+                        }
+
                     </ul>
                 </div>
             </div>

@@ -16,6 +16,7 @@ import UserDashBoard from './Components/UserDashBoard/UserDashBoard';
 import Review from './Components/UserDashBoard/Review/Review';
 import BookOrder from './Components/UserDashBoard/BookOrder/BookOrder';
 import BookingList from './Components/UserDashBoard/BookingList/BookingList';
+import OrderList from './Components/DashBoard/OrderList/OrderList';
 
 export const LoggedInContext = createContext();
 function App() {
@@ -54,7 +55,7 @@ function App() {
             <BookOrder></BookOrder>
           </PrivateRoute>
           <PrivateRoute path='/booking'>
-            <BookingList></BookingList>
+          <OrderList></OrderList>
           </PrivateRoute>
           <PrivateRoute path='/review'>
             <Review></Review>

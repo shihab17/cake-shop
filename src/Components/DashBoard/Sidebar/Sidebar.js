@@ -25,7 +25,7 @@ const Sidebar = () => {
                     </Link>
                 </li>
                 <li>
-                    <Link to="/bookingList" className="text-white text-decoration-none">
+                    <Link to="/booking" className="text-white text-decoration-none">
                         <FontAwesomeIcon icon={faShoppingBag} /> <span>Booking List</span>
                     </Link>
                 </li>
