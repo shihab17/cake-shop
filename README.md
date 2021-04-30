@@ -1,11 +1,27 @@
-# Live Site: https://cake-shop-87ffb.web.app/
+# Online Cake Shop
 
-# Hosting Live Site: https://nameless-atoll-05922.herokuapp.com/
+## Live Site: https://cake-shop-87ffb.web.app/
 
-# cake Shop 
+### Features 
 
-# User can buy cake 
+ - Different dashboard for user and admin
+ - Admin can perform CRUD operations 
+ - Login with google Authentication 
+ - User can review  
+ - Admin can update order status and user can see current order status
+ - User can payment with card like mastercaer, visa card, paypal
+ - User can see order list
 
-# User can review
-
-# Admin can update status for order
+### Technology Used: 
+  
+  - React Js
+  - JavaScript
+  - HTML
+  - CSS 
+  - React Router DOM
+  - Bootstrap 
+  - Fontawesome
+  - Firebase
+  - MongoDB
+  - Heroku
+  - Stripe js
