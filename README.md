@@ -9,7 +9,7 @@
  - Login with google Authentication 
  - User can review  
  - Admin can update order status and user can see current order status
- - User can payment with card like mastercaer, visa card, paypal
+ - User can payment with card like mastercard, visa card, paypal
  - User can see order list
 
 ### Technology Used: 
@@ -20,7 +20,7 @@
   - CSS 
   - React Router DOM
   - Bootstrap 
-  - Fontawesome
+  - Font Awesome
   - Firebase
   - MongoDB
   - Heroku
